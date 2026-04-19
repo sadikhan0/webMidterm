@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { playLightsaber } from '../services/sound'
 
 const LINKS = [
   { to: '/', label: 'Home', end: true },
@@ -12,7 +13,7 @@ function Navbar() {
   return (
     <nav className="relative z-20 border-b border-yellow-400/30 bg-black/60 backdrop-blur-sm">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-6 flex-wrap">
-        <NavLink to="/" className="text-yellow-400 text-lg font-bold tracking-widest shrink-0 flex items-center gap-2" style={{ fontFamily: 'StarJedi' }}>
+        <NavLink to="/" onClick={playLightsaber} className="text-yellow-400 text-lg font-bold tracking-widest shrink-0 flex items-center gap-2" style={{ fontFamily: 'StarJedi' }}>
           <svg width="36" height="18" viewBox="0 0 36 18" fill="none">
             <defs>
               <filter id="lsNavGlow">
@@ -33,6 +34,7 @@ function Navbar() {
               <NavLink
                 to={to}
                 end={end}
+                onClick={playLightsaber}
                 style={{ fontFamily: 'StarJedi' }}
                 className={({ isActive }) =>
                   `px-3 py-1.5 rounded text-sm tracking-wider transition
