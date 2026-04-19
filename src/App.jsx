@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import FilmsPage from './pages/FilmsPage'
@@ -8,10 +9,20 @@ import SpeciesPage from './pages/SpeciesPage'
 import FilmDetailPage from './pages/FilmDetailPage'
 import PersonDetailPage from './pages/PersonDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
+import { playLightsaber } from './services/sound'
+
+function RouteSound() {
+  const location = useLocation()
+  useEffect(() => {
+    playLightsaber()
+  }, [location.pathname])
+  return null
+}
 
 function App() {
   return (
     <BrowserRouter>
+      <RouteSound />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
