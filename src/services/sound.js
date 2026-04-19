@@ -6,7 +6,7 @@ export function playLightsaber() {
       current.pause()
       current.currentTime = 0
     }
-    current = new Audio('/lightsaber.mp3')
+    current = new Audio('/lightsaber_02.mp3')
     current.volume = 0.4
     current.play().catch(() => {})
   } catch (_) {}
