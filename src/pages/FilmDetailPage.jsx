@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { getFilmById } from '../services/api'
+import { getFilmById, toProxyUrl } from '../services/api'
 
 function getIdFromUrl(url) {
   return url.split('/').filter(Boolean).pop()
@@ -52,7 +52,7 @@ function FilmDetailPage() {
         setFilm(data)
         const first15 = data.characters.slice(0, 15)
         const charData = await Promise.all(
-          first15.map((url) => fetch(url).then((r) => r.json()))
+          first15.map((url) => fetch(toProxyUrl(url)).then((r) => r.json()))
         )
         setCharacters(charData)
         setLoading(false)
