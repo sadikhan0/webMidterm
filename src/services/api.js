@@ -1,4 +1,4 @@
-const BASE_URL = 'https://swapi.info/api'
+const BASE_URL = '/swapi'
 const PAGE_SIZE = 10
 
 // swapi.info returns plain arrays with no pagination — normalize to { results, next }
