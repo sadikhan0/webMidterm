@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { getPersonById } from '../services/api'
+import { getPersonById, toProxyUrl } from '../services/api'
 
 function fmt(value) {
   return value === 'unknown' || value === 'n/a' ? 'N/A' : value
@@ -24,7 +24,7 @@ function PersonDetailPage() {
       .then(async (data) => {
         setPerson(data)
         const titles = await Promise.all(
-          data.films.map((url) => fetch(url).then((r) => r.json()).then((f) => f.title))
+          data.films.map((url) => fetch(toProxyUrl(url)).then((r) => r.json()).then((f) => f.title))
         )
         setFilmTitles(titles)
         setLoading(false)

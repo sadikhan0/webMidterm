@@ -1,6 +1,10 @@
 const BASE_URL = '/swapi'
 const PAGE_SIZE = 10
 
+function toProxyUrl(url) {
+  return url.replace('https://swapi.info/api', '/swapi')
+}
+
 // swapi.info returns plain arrays with no pagination — normalize to { results, next }
 function paginate(arr, page) {
   const start = (page - 1) * PAGE_SIZE
@@ -61,4 +65,4 @@ async function searchPeople(query) {
   return { results: filtered, next: null }
 }
 
-export { getFilms, getFilmById, getPeople, getPersonById, getPlanets, getSpecies, searchPeople }
+export { getFilms, getFilmById, getPeople, getPersonById, getPlanets, getSpecies, searchPeople, toProxyUrl }

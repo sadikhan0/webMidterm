@@ -3,6 +3,10 @@
     {
       "source": "/swapi/:path*",
       "destination": "https://swapi.info/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
