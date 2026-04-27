@@ -1,8 +1,8 @@
-const BASE_URL = '/swapi'
+const BASE_URL = '/api/swapi'
 const PAGE_SIZE = 10
 
 function toProxyUrl(url) {
-  return url.replace('https://swapi.info/api', '/swapi')
+  return url.replace('https://swapi.info/api', '/api/swapi')
 }
 
 // swapi.info returns plain arrays with no pagination — normalize to { results, next }

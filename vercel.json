@@ -1,11 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/swapi/:path*",
-      "destination": "https://swapi.info/api/:path*"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]

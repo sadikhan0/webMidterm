@@ -5,10 +5,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/swapi': {
+      '/api/swapi': {
         target: 'https://swapi.info/api',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/swapi/, ''),
+        rewrite: (path) => path.replace(/^\/api\/swapi/, ''),
       },
     },
   },
